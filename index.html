@@ -31,10 +31,11 @@
   <script>
     const TARGET = "https://script.google.com/macros/s/AKfycbw7U3ue29N03T7u1rfAL1KtpvQY2rQw1ah9F4r96FSrIni1ZXxSUVNEHExAwqhuY9x2/exec";
 
+    // Button link
     document.getElementById("goBtn").href = TARGET;
-
-    // Auto redirect (works for normal open + installed app)
-    setTimeout(() => { window.location.replace(TARGET); }, 400);
+   
+    // Instant redirect (no delay)
+    window.location.href = TARGET;
   </script>
 </body>
 </html>
