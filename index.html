@@ -10,18 +10,31 @@
   <meta name="apple-mobile-web-app-title" content="PPL PR">
 
   <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="icon" sizes="192x192" href="/icon-192.png">
-  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="icon" sizes="192x192" href="/icon-512.png">
+  <link rel="apple-touch-icon" href="/icon-512.png">
 
   <style>
-    html,body{height:100%;margin:0;background:#0b3aa8;}
-    .frame{position:fixed;inset:0;border:0;width:100%;height:100%;}
+    body{margin:0;font-family:system-ui;background:#0b3aa8;color:#fff;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center}
+    .box{max-width:420px;padding:24px}
+    .btn{display:inline-block;margin-top:14px;background:#1d4ed8;color:#fff;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700}
+    .small{opacity:.85;font-size:13px;margin-top:10px}
   </style>
 </head>
 <body>
-  <iframe class="frame"
-    src="https://script.google.com/macros/s/AKfycbw7U3ue29N03T7u1rfAL1KtpvQY2rQw1ah9F4r96FSrIni1ZXxSUVNEHExAwqhuY9x2/exec"
-    allow="clipboard-read; clipboard-write"
-  ></iframe>
+  <div class="box">
+    <div style="font-size:20px;font-weight:800;">Opening PPL PR…</div>
+    <div class="small">If it doesn’t open automatically, tap below.</div>
+
+    <a class="btn" id="goBtn" href="#">Open PPL PR</a>
+  </div>
+
+  <script>
+    const TARGET = "https://script.google.com/macros/s/AKfycbw7U3ue29N03T7u1rfAL1KtpvQY2rQw1ah9F4r96FSrIni1ZXxSUVNEHExAwqhuY9x2/exec";
+
+    document.getElementById("goBtn").href = TARGET;
+
+    // Auto redirect (works for normal open + installed app)
+    setTimeout(() => { window.location.replace(TARGET); }, 400);
+  </script>
 </body>
 </html>
