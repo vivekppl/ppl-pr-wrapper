@@ -1,241 +1,58 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>PPL PR</title>
 
   <meta name="theme-color" content="#1d4ed8">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="PPL PR">
-  <meta name="mobile-web-app-capable" content="yes">
 
   <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="icon" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" sizes="192x192" href="/icon-512.png">
   <link rel="apple-touch-icon" href="/icon-512.png">
 
   <style>
-    :root{
-      --brand:#1d4ed8;
-      --bg:#e9edf5;
-      --text:#0f172a;
-      --bar:#0f1720;
-      --shadow:0 10px 30px rgba(0,0,0,.12);
-      --radius:18px;
-      --header-h:56px;
-    }
-
-    *{ box-sizing:border-box; }
-    html,body{
-      margin:0;
-      width:100%;
-      height:100%;
-      overflow:hidden;
-      background:var(--bg);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      -webkit-text-size-adjust:100%;
-    }
-
     body{
-      min-height:100dvh;
-      color:var(--text);
-      overscroll-behavior:none;
-      touch-action:manipulation;
-    }
-
-    .app{
-      position:fixed;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      min-height:100dvh;
-      background:var(--bg);
-    }
-
-    .topbar{
-      height:var(--header-h);
-      background:var(--bar);
+      margin:0;
+      font-family:system-ui;
+      background:#0b3aa8;
       color:#fff;
       display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      padding:8px 12px;
-      gap:10px;
-      box-shadow:0 2px 10px rgba(0,0,0,.15);
-      z-index:20;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      min-width:0;
-    }
-
-    .brand img{
-      height:30px;
-      width:auto;
-      display:block;
-      object-fit:contain;
-      background:#fff;
-      border-radius:4px;
-      padding:0;
-    }
-
-    .brand-text{
-      font-weight:800;
-      letter-spacing:.3px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      display:none;
-    }
-
-    .frame-wrap{
-      position:relative;
-      flex:1 1 auto;
-      min-height:0;
-      background:var(--bg);
-    }
-
-    iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-      background:#fff;
-    }
-
-    .overlay{
-      position:absolute;
-      inset:0;
-      display:flex;
+      min-height:100vh;
       align-items:center;
       justify-content:center;
-      padding:24px;
-      background:linear-gradient(180deg,#eef2ff 0%, #e9edf5 100%);
-      z-index:10;
-      transition:opacity .25s ease, visibility .25s ease;
+      text-align:center
     }
-
-    .overlay.hidden{
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-    }
-
-    .card{
-      width:min(520px, 100%);
-      background:#fff;
-      border-radius:24px;
-      box-shadow:var(--shadow);
-      padding:24px;
-      text-align:center;
-    }
-
-    .title{
-      margin:0;
-      font-size:clamp(28px, 6vw, 42px);
-      line-height:1.05;
-      font-weight:900;
-      color:#0b1736;
-    }
-
-    .sub{
-      margin:12px 0 20px;
-      color:#6b7280;
-      font-size:15px;
-    }
-
-    .actions{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .primary{
-      appearance:none;
-      border:0;
-      border-radius:16px;
-      padding:14px 16px;
-      font-size:16px;
-      font-weight:800;
-      cursor:pointer;
-      text-decoration:none;
-      background:var(--brand);
+    .box{max-width:420px;padding:24px}
+    .btn{
+      display:inline-block;
+      margin-top:18px;
+      background:#1d4ed8;
       color:#fff;
-    }
-
-    .fallback{
-      appearance:none;
-      border:1px solid #cbd5e1;
-      border-radius:16px;
-      padding:12px 16px;
-      font-size:14px;
+      padding:14px 18px;
+      border-radius:14px;
+      text-decoration:none;
       font-weight:700;
-      cursor:pointer;
-      background:#fff;
-      color:#0f172a;
+      font-size:16px
     }
-
-    @media (min-width: 700px){
-      .brand-text{ display:block; }
-      .topbar{ padding:10px 18px; }
-      .brand img{ height:34px; }
-    }
+    .small{opacity:.85;font-size:13px;margin-top:12px}
   </style>
 </head>
+
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div class="brand">
-        <img src="/projenix-logo.png" alt="Projenix">
-        <div class="brand-text">PPL Purchase Requisition</div>
-      </div>
-    </header>
+  <div class="box">
+    <div style="font-size:22px;font-weight:800;">PPL Purchase Requisition</div>
+    <div class="small">Install this app, then tap below to open PR system.</div>
 
-    <main class="frame-wrap">
-      <iframe
-        id="gasFrame"
-        title="PPL PR"
-        referrerpolicy="no-referrer-when-downgrade"
-        allow="clipboard-read; clipboard-write"
-        loading="eager">
-      </iframe>
-
-      <div class="overlay" id="overlay">
-        <div class="card">
-          <h1 class="title">PPL Purchase<br>Requisition</h1>
-          <div class="sub">Mobile-first access to the live PR system.</div>
-
-          <div class="actions">
-            <button class="primary" id="launchBtn" type="button">Open PPL PR</button>
-            <button class="fallback" id="openNewTabBtn" type="button">Open in New Tab</button>
-          </div>
-        </div>
-      </div>
-    </main>
+    <a class="btn" id="goBtn" href="#">Open PPL PR</a>
   </div>
 
   <script>
-    const TARGET = "https://script.google.com/macros/s/AKfycbyqrQhcAiDYKHMh5EfMkrIpLFvu8XVeHaNbbRsTZ6GedAtgIYJLls_JZAw6uQElT1Ro3g/exec";
+    const TARGET = "https://script.google.com/macros/s/AKfycbw7U3ue29N03T7u1rfAL1KtpvQY2rQw1ah9F4r96FSrIni1ZXxSUVNEHExAwqhuY9x2/exec";
 
-    const frame = document.getElementById('gasFrame');
-    const overlay = document.getElementById('overlay');
-    const launchBtn = document.getElementById('launchBtn');
-    const openNewTabBtn = document.getElementById('openNewTabBtn');
-
-    function loadEmbedded(){
-      frame.src = TARGET;
-      overlay.classList.add('hidden');
-    }
-
-    launchBtn.addEventListener('click', loadEmbedded);
-
-    openNewTabBtn.addEventListener('click', function(){
-      window.open(TARGET, '_blank', 'noopener');
-    });
+    document.getElementById("goBtn").href = TARGET;
   </script>
 </body>
 </html>
