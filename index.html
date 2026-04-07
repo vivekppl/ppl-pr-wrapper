@@ -91,38 +91,14 @@
       display:none;
     }
 
-    .frame-wrap{
-      position:relative;
+    .main{
       flex:1 1 auto;
       min-height:0;
-      background:var(--bg);
-    }
-
-    iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-      background:#fff;
-    }
-
-    .overlay{
-      position:absolute;
-      inset:0;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:24px;
       background:linear-gradient(180deg,#eef2ff 0%, #e9edf5 100%);
-      z-index:10;
-      transition:opacity .25s ease, visibility .25s ease;
-    }
-
-    .overlay.hidden{
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
     }
 
     .card{
@@ -183,23 +159,13 @@
       </div>
     </header>
 
-    <main class="frame-wrap">
-      <iframe
-        id="gasFrame"
-        title="PPL PR"
-        referrerpolicy="no-referrer-when-downgrade"
-        allow="clipboard-read; clipboard-write"
-        loading="eager">
-      </iframe>
+    <main class="main">
+      <div class="card">
+        <h1 class="title">PPL Purchase<br>Requisition</h1>
+        <div class="sub">Mobile-first access to the live PR system.</div>
 
-      <div class="overlay" id="overlay">
-        <div class="card">
-          <h1 class="title">PPL Purchase<br>Requisition</h1>
-          <div class="sub">Mobile-first access to the live PR system.</div>
-
-          <div class="actions">
-            <button class="primary" id="launchBtn" type="button">Open PPL PR</button>
-          </div>
+        <div class="actions">
+          <button class="primary" id="launchBtn" type="button">Open PPL PR</button>
         </div>
       </div>
     </main>
@@ -207,17 +173,9 @@
 
   <script>
     const TARGET = "https://script.google.com/macros/s/AKfycbw7U3ue29N03T7u1rfAL1KtpvQY2rQw1ah9F4r96FSrIni1ZXxSUVNEHExAwqhuY9x2/exec";
-
-    const frame = document.getElementById('gasFrame');
-    const overlay = document.getElementById('overlay');
-    const launchBtn = document.getElementById('launchBtn');
-
-    function loadEmbedded(){
-      frame.src = TARGET;
-      overlay.classList.add('hidden');
-    }
-
-    launchBtn.addEventListener('click', loadEmbedded);
+    document.getElementById('launchBtn').addEventListener('click', function(){
+      window.location.href = TARGET;
+    });
   </script>
 </body>
 </html>
