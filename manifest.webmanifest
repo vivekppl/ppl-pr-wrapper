@@ -1,13 +1,15 @@
 {
-  "name": "PPL PR",
+  "name": "PPL Purchase Requisition",
   "short_name": "PPL PR",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0b3aa8",
   "theme_color": "#1d4ed8",
   "icons": [
     {
-      "src": "/icon-512.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
